@@ -1,11 +1,13 @@
 import "./App.css";
-import Home from "./components/pages/Home";
+import Navbar from "./components/Layout/Navbar";
+import Home from "./components/pages/Home/Home";
 import StaffLogin from "./components/pages/StaffLogin";
 
 function App() {
   return (
     <>
-      <StaffLogin />
+      <Navbar />
+      <Home />
     </>
   );
 }

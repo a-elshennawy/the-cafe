@@ -1,0 +1,244 @@
+{
+  "menu": [
+    {
+      "id": 1,
+      "name": "Turkish Coffee",
+      "desc": "Strong traditional coffee with cardamom",
+      "category": "hot drinks",
+      "price": 15,
+      "image_url": ""
+    },
+    {
+      "id": 2,
+      "name": "Sahlab",
+      "desc": "Creamy hot milk drink with coconut and nuts",
+      "category": "hot drinks",
+      "price": 25,
+      "image_url": ""
+    },
+    {
+      "id": 3,
+      "name": "Karkadeh Hot",
+      "desc": "Warm hibiscus tea with sugar",
+      "category": "hot drinks",
+      "price": 12,
+      "image_url": ""
+    },
+    {
+      "id": 4,
+      "name": "Yansoon",
+      "desc": "Sweet anise herbal tea",
+      "category": "hot drinks",
+      "price": 10,
+      "image_url": ""
+    },
+    {
+      "id": 5,
+      "name": "Cappuccino",
+      "desc": "Espresso with steamed milk and foam",
+      "category": "hot drinks",
+      "price": 30,
+      "image_url": ""
+    },
+    {
+      "id": 6,
+      "name": "Hot Chocolate",
+      "desc": "Rich cocoa drink with whipped cream",
+      "category": "hot drinks",
+      "price": 35,
+      "image_url": ""
+    },
+    {
+      "id": 7,
+      "name": "Maghrebi Tea",
+      "desc": "Black tea with fresh mint leaves",
+      "category": "hot drinks",
+      "price": 8,
+      "image_url": ""
+    },
+    {
+      "id": 8,
+      "name": "Ginger Tea",
+      "desc": "Spicy fresh ginger with honey",
+      "category": "hot drinks",
+      "price": 15,
+      "image_url": ""
+    },
+    {
+      "id": 9,
+      "name": "Cinnamon Tea",
+      "desc": "Warm tea with cinnamon sticks",
+      "category": "hot drinks",
+      "price": 12,
+      "image_url": ""
+    },
+    {
+      "id": 10,
+      "name": "Nescafe",
+      "desc": "Instant coffee with milk",
+      "category": "hot drinks",
+      "price": 18,
+      "image_url": ""
+    },
+    {
+      "id": 11,
+      "name": "Karkadeh Cold",
+      "desc": "Refreshing iced hibiscus drink",
+      "category": "cold drinks",
+      "price": 15,
+      "image_url": ""
+    },
+    {
+      "id": 12,
+      "name": "Tamr Hindi",
+      "desc": "Sweet and tangy tamarind juice",
+      "category": "cold drinks",
+      "price": 18,
+      "image_url": ""
+    },
+    {
+      "id": 13,
+      "name": "Asab",
+      "desc": "Fresh sugarcane juice",
+      "category": "cold drinks",
+      "price": 12,
+      "image_url": ""
+    },
+    {
+      "id": 14,
+      "name": "Lemon Mint",
+      "desc": "Fresh lemon juice with mint",
+      "category": "cold drinks",
+      "price": 20,
+      "image_url": ""
+    },
+    {
+      "id": 15,
+      "name": "Mango Juice",
+      "desc": "Pure blended mango",
+      "category": "cold drinks",
+      "price": 25,
+      "image_url": ""
+    },
+    {
+      "id": 16,
+      "name": "Strawberry Juice",
+      "desc": "Fresh strawberry blend",
+      "category": "cold drinks",
+      "price": 28,
+      "image_url": ""
+    },
+    {
+      "id": 17,
+      "name": "Orange Juice",
+      "desc": "Freshly squeezed oranges",
+      "category": "cold drinks",
+      "price": 20,
+      "image_url": ""
+    },
+    {
+      "id": 18,
+      "name": "Coca Cola",
+      "desc": "Classic cola soft drink",
+      "category": "cold drinks",
+      "price": 10,
+      "image_url": ""
+    },
+    {
+      "id": 19,
+      "name": "Mineral Water",
+      "desc": "Bottled still water",
+      "category": "cold drinks",
+      "price": 5,
+      "image_url": ""
+    },
+    {
+      "id": 20,
+      "name": "Iced Coffee",
+      "desc": "Cold coffee with ice and milk",
+      "category": "cold drinks",
+      "price": 30,
+      "image_url": ""
+    },
+    {
+      "id": 21,
+      "name": "Falafel Sandwich",
+      "desc": "Fried falafel with tahini and veggies",
+      "category": "food",
+      "price": 15,
+      "image_url": ""
+    },
+    {
+      "id": 22,
+      "name": "Kofta Sandwich",
+      "desc": "Grilled spiced meat with salad",
+      "category": "food",
+      "price": 35,
+      "image_url": ""
+    },
+    {
+      "id": 23,
+      "name": "Shawarma Sandwich",
+      "desc": "Chicken shawarma with garlic sauce",
+      "category": "food",
+      "price": 40,
+      "image_url": ""
+    },
+    {
+      "id": 24,
+      "name": "Cheese Pizza",
+      "desc": "Mozzarella cheese with tomato sauce",
+      "category": "food",
+      "price": 60,
+      "image_url": ""
+    },
+    {
+      "id": 25,
+      "name": "Chicken Pizza",
+      "desc": "Grilled chicken with vegetables",
+      "category": "food",
+      "price": 80,
+      "image_url": ""
+    },
+    {
+      "id": 26,
+      "name": "Hawawshi",
+      "desc": "Spiced minced meat in baladi bread",
+      "category": "food",
+      "price": 30,
+      "image_url": ""
+    },
+    {
+      "id": 27,
+      "name": "Liver Sandwich",
+      "desc": "Alexandrian fried liver with peppers",
+      "category": "food",
+      "price": 25,
+      "image_url": ""
+    },
+    {
+      "id": 28,
+      "name": "Egg Sandwich",
+      "desc": "Fried eggs with cheese and tomato",
+      "category": "food",
+      "price": 18,
+      "image_url": ""
+    },
+    {
+      "id": 29,
+      "name": "Halloumi Sandwich",
+      "desc": "Grilled halloumi cheese with veggies",
+      "category": "food",
+      "price": 35,
+      "image_url": ""
+    },
+    {
+      "id": 30,
+      "name": "Mixed Pizza",
+      "desc": "Chicken, beef, peppers and olives",
+      "category": "food",
+      "price": 90,
+      "image_url": ""
+    }
+  ]
+}
