@@ -1,6 +1,69 @@
 @import url("./fonts.css");
 
+:root {
+  --first: #51a3a3;
+  --second: #75485e;
+  --third: #cb904d;
+  --fourth: #dfcc74;
+  --fifth: #c3e991;
+}
+
 * {
   box-sizing: border-box;
   text-transform: capitalize !important;
+  font-family: ubuntu;
+}
+
+body {
+  background-color: var(--first) !important;
+}
+
+section {
+  padding: 50px 0px;
+}
+
+.staffLog {
+  background-color: var(--second);
+  color: var(--fourth);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 0 10px #000;
+
+  form {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #000;
+
+    .inputContainer {
+      label {
+        display: block;
+        font-weight: bold;
+      }
+      input {
+        width: 100%;
+        font-weight: bold;
+        background-color: var(--fourth);
+        color: var(--second);
+        border-radius: 4px;
+        padding: 5px;
+        border: none;
+        outline: none;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    .btnArea {
+      button {
+        padding: 5px 10px;
+        border-radius: 4px;
+        border: none;
+        background-color: var(--fourth);
+        color: var(--second);
+        font-weight: bold;
+      }
+    }
+  }
 }
