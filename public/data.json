@@ -18,7 +18,7 @@
     },
     {
       "id": 3,
-      "name": "Karkadeh Hot",
+      "name": "Hot Karkadeh",
       "desc": "Warm hibiscus tea with sugar",
       "category": "hot drinks",
       "price": 12,
@@ -26,8 +26,8 @@
     },
     {
       "id": 4,
-      "name": "Yansoon",
-      "desc": "Sweet anise herbal tea",
+      "name": "tea",
+      "desc": "tea",
       "category": "hot drinks",
       "price": 10,
       "image_url": ""
@@ -82,7 +82,7 @@
     },
     {
       "id": 11,
-      "name": "Karkadeh Cold",
+      "name": "Cold Karkadeh",
       "desc": "Refreshing iced hibiscus drink",
       "category": "cold drinks",
       "price": 15,
@@ -98,7 +98,7 @@
     },
     {
       "id": 13,
-      "name": "Asab",
+      "name": "cane juice",
       "desc": "Fresh sugarcane juice",
       "category": "cold drinks",
       "price": 12,
@@ -226,14 +226,6 @@
     },
     {
       "id": 29,
-      "name": "Halloumi Sandwich",
-      "desc": "Grilled halloumi cheese with veggies",
-      "category": "food",
-      "price": 35,
-      "image_url": ""
-    },
-    {
-      "id": 30,
       "name": "Mixed Pizza",
       "desc": "Chicken, beef, peppers and olives",
       "category": "food",

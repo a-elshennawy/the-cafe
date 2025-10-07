@@ -23,12 +23,16 @@ img {
 }
 
 section {
-  padding: 50px 0px;
+  padding: 10px 0px;
 }
 
 nav {
+  position: sticky;
+  top: 8px;
   background-color: var(--fourth);
   padding: 10px 5px;
+  border-radius: 20px;
+  z-index: 1111;
 
   .btnsSide {
     .toCart {
@@ -87,4 +91,64 @@ nav {
       }
     }
   }
+}
+
+.searchContainer {
+  input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    background-color: var(--fourth);
+    color: var(--second);
+    border-radius: 10px;
+
+    &:focus {
+      outline: none;
+    }
+    &::placeholder {
+      color: var(--second);
+    }
+  }
+
+  button {
+    width: fit-content;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: var(--fourth);
+    color: var(--second);
+    font-weight: bold;
+  }
+}
+
+.prodSection {
+  .title {
+    padding: 10px;
+    color: var(--second);
+  }
+  .prodItem {
+    background-color: var(--fourth);
+    color: var(--second);
+    border-radius: 10px;
+    overflow: hidden;
+
+    .actions {
+      button {
+        width: fit-content;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 10px;
+        background-color: var(--second);
+        color: var(--fourth);
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
