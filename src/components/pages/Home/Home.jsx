@@ -1,7 +1,8 @@
-import SearchComp from "./HomeSections/SearchComp";
-import ColdDrinksComp from "./HomeSections/ColdDrinksComp";
-import HotDrinksComp from "./HomeSections/HotDrinksComp";
-import FoodComp from "./HomeSections/FoodComp";
+import SearchComp from "./HomeSections/SearchComp/SearchComp";
+import ColdDrinksComp from "./HomeSections/Products/ColdDrinksComp";
+import HotDrinksComp from "./HomeSections/Products/HotDrinksComp";
+import FoodComp from "./HomeSections/Products/FoodComp";
+import FeedbackInput from "./HomeSections/Feedback/FeedbackInput";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
         <ColdDrinksComp />
         <HotDrinksComp />
         <FoodComp />
+        <FeedbackInput />
       </section>
     </>
   );

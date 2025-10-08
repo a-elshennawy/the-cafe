@@ -2,7 +2,6 @@ export default function InvSection() {
   return (
     <>
       <div className="InvSection py-3 px-0 col-12 row justify-content-center align-items-start m-0 gap-2">
-        <h2 className="col-12 text-center">inventory</h2>
         <div className="searchContainer col-12 text-center py-2">
           <input
             className="prodSearch mb-2 mx-1"

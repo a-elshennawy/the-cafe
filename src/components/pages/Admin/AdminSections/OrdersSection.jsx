@@ -2,7 +2,6 @@ export default function OrdersSection() {
   return (
     <>
       <div className="OrdersSection py-3 px-1 row justify-content-center align-items-center m-0 gap-1">
-        <h2 className="col-12 text-center">orders</h2>
         <div className="orderItem p-3 col-lg-2 col-10">
           <h4 className="pb-2">customer name</h4>
           <div className="pb-1">
