@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoadingSpinner from "./components/LoadingSpinner";
 import Layout from "./components/Layout/Layout";
 
-const Admin = lazy(() => import("./components/pages/Admin"));
+const Admin = lazy(() => import("./components/pages/Admin/Admin"));
 const Home = lazy(() => import("./components/pages/Home/Home"));
 const StaffLogin = lazy(() => import("./components/pages/StaffLogin"));
 

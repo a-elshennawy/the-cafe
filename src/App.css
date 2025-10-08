@@ -163,6 +163,112 @@ nav {
   }
 }
 
+.InvSection {
+  color: var(--second);
+
+  .searchContainer {
+    .prodSearch {
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      padding: 5px;
+      background-color: var(--fourth);
+      color: var(--second);
+
+      &:focus {
+        border: none;
+        outline: none;
+      }
+    }
+
+    button {
+      padding: 5px 10px;
+      border: none;
+      border-radius: 10px;
+      background-color: var(--fourth);
+      color: var(--second);
+      font-weight: bold;
+    }
+  }
+
+  .crudForm {
+    background-color: var(--second);
+    padding: 10px;
+    border-radius: 10px;
+
+    .inputContainer {
+      width: fit-content !important;
+      input,
+      select {
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        padding: 5px;
+        background-color: var(--fourth);
+        color: var(--second);
+
+        &::placeholder {
+          color: var(--second);
+        }
+
+        &:focus {
+          border: none;
+          outline: none;
+        }
+      }
+    }
+
+    button {
+      padding: 5px 10px;
+      border: none;
+      border-radius: 10px;
+      background-color: var(--fourth);
+      color: var(--second);
+      font-weight: bold;
+    }
+  }
+
+  .productSide {
+    .prodItem {
+      background-color: var(--fourth);
+      color: var(--second);
+      border-radius: 10px;
+      overflow: hidden;
+
+      .actions {
+        button {
+          width: fit-content;
+          border: none;
+          padding: 5px 10px;
+          margin-inline-end: 5px;
+          border-radius: 10px;
+          background-color: var(--second);
+          color: var(--fourth);
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+.OrdersSection {
+  color: var(--second);
+  .orderItem {
+    background-color: var(--fourth);
+    color: var(--second);
+    border-radius: 10px;
+
+    button {
+      padding: 5px 10px;
+      border: none;
+      border-radius: 10px;
+      background-color: var(--second);
+      color: var(--fourth);
+      font-weight: bold;
+    }
+  }
+}
+
 .loader {
   position: absolute;
   top: 50%;
