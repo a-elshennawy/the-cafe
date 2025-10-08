@@ -7,7 +7,6 @@ import Layout from "./components/Layout/Layout";
 const Admin = lazy(() => import("./components/pages/Admin"));
 const Home = lazy(() => import("./components/pages/Home/Home"));
 const StaffLogin = lazy(() => import("./components/pages/StaffLogin"));
-const Orders = lazy(() => import("./components/pages/Orders"));
 
 function App() {
   return (
@@ -20,7 +19,6 @@ function App() {
             </Route>
             <Route path="/staff-login" element={<StaffLogin />} />
             <Route path="/admin" element={<Admin />} />
-            <Route path="/orders" element={<Orders />} />
             <Route />
           </Routes>
         </Suspense>
