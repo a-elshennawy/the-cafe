@@ -146,6 +146,23 @@ nav {
   }
 }
 
+.navTabs {
+  button {
+    margin: 0px 5px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--fourth);
+    color: var(--second);
+    font-weight: bold;
+  }
+
+  .selected {
+    background-color: var(--second);
+    color: var(--fourth);
+  }
+}
+
 .loader {
   position: absolute;
   top: 50%;

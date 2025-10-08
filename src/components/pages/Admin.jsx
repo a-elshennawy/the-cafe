@@ -3,7 +3,7 @@ export default function Admin() {
     <>
       <section className="container-fluid row justify-content-center align-items-center m-0 gap-1">
         <div className="navTabs col-12 text-center">
-          <button>orders</button>
+          <button className="selected">orders</button>
           <button>inventory</button>
         </div>
         <div className="InvSection col-12">
