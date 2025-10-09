@@ -6,7 +6,7 @@ import Layout from "./components/Layout/Layout";
 
 const Admin = lazy(() => import("./components/pages/Admin/Admin"));
 const Home = lazy(() => import("./components/pages/Home/Home"));
-const StaffLogin = lazy(() => import("./components/pages/StaffLogin"));
+const StaffLogin = lazy(() => import("./components/pages/Login/StaffLogin"));
 
 function App() {
   return (

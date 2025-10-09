@@ -22,6 +22,13 @@ img {
   width: 100%;
 }
 
+button {
+  padding: 5px 10px !important;
+  border: none !important;
+  border-radius: 10px !important;
+  font-weight: bold !important;
+}
+
 section {
   padding: 10px 0px;
 }
@@ -56,7 +63,7 @@ nav {
 
   form {
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 10px;
     box-shadow: 0 0 10px #000;
 
     .inputContainer {
@@ -69,7 +76,7 @@ nav {
         font-weight: bold;
         background-color: var(--fourth);
         color: var(--second);
-        border-radius: 4px;
+        border-radius: 10px;
         padding: 5px;
         border: none;
         outline: none;
@@ -82,12 +89,8 @@ nav {
 
     .btnArea {
       button {
-        padding: 5px 10px;
-        border-radius: 4px;
-        border: none;
         background-color: var(--fourth);
         color: var(--second);
-        font-weight: bold;
       }
     }
   }
@@ -112,12 +115,8 @@ nav {
 
   button {
     width: fit-content;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 10px;
     background-color: var(--fourth);
     color: var(--second);
-    font-weight: bold;
   }
 }
 
@@ -135,12 +134,8 @@ nav {
     .actions {
       button {
         width: fit-content;
-        border: none;
-        padding: 5px 10px;
-        border-radius: 10px;
         background-color: var(--second);
         color: var(--fourth);
-        font-weight: bold;
       }
     }
   }
@@ -149,12 +144,8 @@ nav {
 .navTabs {
   button {
     margin: 0px 5px;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 10px;
     background-color: var(--fourth);
     color: var(--second);
-    font-weight: bold;
   }
 
   .selected {
@@ -182,12 +173,8 @@ nav {
     }
 
     button {
-      padding: 5px 10px;
-      border: none;
-      border-radius: 10px;
       background-color: var(--fourth);
       color: var(--second);
-      font-weight: bold;
     }
   }
 
@@ -219,12 +206,8 @@ nav {
     }
 
     button {
-      padding: 5px 10px;
-      border: none;
-      border-radius: 10px;
       background-color: var(--fourth);
       color: var(--second);
-      font-weight: bold;
     }
   }
 
@@ -238,13 +221,9 @@ nav {
       .actions {
         button {
           width: fit-content;
-          border: none;
-          padding: 5px 10px;
           margin-inline-end: 5px;
-          border-radius: 10px;
           background-color: var(--second);
           color: var(--fourth);
-          font-weight: bold;
         }
       }
     }
@@ -259,12 +238,8 @@ nav {
     border-radius: 10px;
 
     button {
-      padding: 5px 10px;
-      border: none;
-      border-radius: 10px;
       background-color: var(--second);
       color: var(--fourth);
-      font-weight: bold;
     }
   }
 }

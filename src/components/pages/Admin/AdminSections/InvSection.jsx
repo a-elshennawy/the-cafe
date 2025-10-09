@@ -31,7 +31,7 @@ export default function InvSection() {
             <input type="file" accept="image/*" />
           </div>
           <div className="p-0 my-2">
-            <button className="mb-2">submit</button>
+            <button>submit</button>
           </div>
         </form>
         <div className="productSide p-0 col-lg-5 col-12 row justify-content-center align-items-center m-0 gap-2">
