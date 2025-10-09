@@ -143,9 +143,16 @@ nav {
 }
 
 .navTabs {
+  position: sticky;
+  top: 10px;
+  padding: 10px 5px;
+  border-radius: 20px;
+  background-color: var(--fourth);
+  z-index: 1111;
+
   button {
     margin: 0px 5px;
-    background-color: var(--fourth);
+    background-color: transparent;
     color: var(--second);
   }
 
@@ -158,31 +165,36 @@ nav {
 .InvSection {
   color: var(--second);
 
-  .searchContainer {
-    .prodSearch {
-      border-radius: 10px;
-      border: none;
-      outline: none;
-      padding: 5px;
-      background-color: var(--fourth);
-      color: var(--second);
-
-      &:focus {
-        border: none;
-        outline: none;
-      }
-    }
-
-    button {
-      background-color: var(--fourth);
-      color: var(--second);
-    }
-  }
-
   .crudForm {
     background-color: var(--second);
     padding: 10px;
     border-radius: 10px;
+    position: sticky;
+    top: 70px;
+    align-self: flex-start;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+
+    .searchContainer {
+      .prodSearch {
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        padding: 5px;
+        background-color: var(--fourth);
+        color: var(--second);
+
+        &:focus {
+          border: none;
+          outline: none;
+        }
+      }
+
+      button {
+        background-color: var(--fourth);
+        color: var(--second);
+      }
+    }
 
     .inputContainer {
       width: fit-content !important;
@@ -209,6 +221,7 @@ nav {
     button {
       background-color: var(--fourth);
       color: var(--second);
+      margin-inline-end: 5px;
     }
   }
 

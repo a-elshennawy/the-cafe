@@ -26,6 +26,12 @@ export default function StaffLogin() {
       return;
     }
 
+    // Verify session is stored
+    const {
+      data: { session },
+    } = await supabase.auth.getSession();
+    console.log("Retrieved session:", session);
+
     if (data.user) {
       navigate("/admin");
     }
