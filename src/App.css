@@ -48,7 +48,7 @@ nav {
     padding: 5px;
     background-color: var(--second);
     color: var(--fourth);
-    border-radius: 10px;
+    border-radius: 15px;
 
     &:focus {
       outline: none;
@@ -129,11 +129,52 @@ nav {
     }
   }
 
+  .products-scroll-container {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-left: 0px;
+    padding-bottom: 10px;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--fourth) var(--second);
+
+    &::-webkit-scrollbar {
+      height: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: var(--second);
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--fourth);
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: var(--third);
+    }
+  }
+
   .prodItem {
     background-color: var(--fourth);
     color: var(--second);
     border-radius: 10px;
     overflow: hidden;
+    flex-shrink: 0;
+
+    width: calc((100% - 4rem) / 6.5);
+
+    @media (max-width: 991px) {
+      width: calc((100% - 2rem) / 3.5);
+    }
+
+    @media (max-width: 575px) {
+      width: calc((100% - 1rem) / 2.5);
+    }
 
     .actions {
       button {
@@ -257,6 +298,39 @@ nav {
     button {
       background-color: var(--second);
       color: var(--fourth);
+    }
+  }
+}
+
+.feedbackSection {
+  border-radius: 10px;
+
+  .feedbackForm {
+    background-color: var(--second);
+    border-radius: 8px;
+
+    input,
+    textarea {
+      background-color: var(--fourth);
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      color: var(--second);
+
+      &::placeholder {
+        color: var(--second);
+      }
+
+      &:focus {
+        border: none;
+        outline: none;
+      }
+    }
+
+    button {
+      width: fit-content;
+      background-color: var(--fourth);
+      color: var(--second);
     }
   }
 }

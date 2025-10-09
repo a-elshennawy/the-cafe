@@ -8,8 +8,11 @@ export default function Home() {
     <>
       <section className="container-fluid text-start">
         <ColdDrinksComp />
+        <hr />
         <HotDrinksComp />
+        <hr />
         <FoodComp />
+        <hr />
         <FeedbackInput />
       </section>
     </>
