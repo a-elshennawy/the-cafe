@@ -41,6 +41,23 @@ nav {
   border-radius: 20px;
   z-index: 1111;
 
+  input {
+    display: inline;
+    border: none;
+    outline: none;
+    padding: 5px;
+    background-color: var(--second);
+    color: var(--fourth);
+    border-radius: 10px;
+
+    &:focus {
+      outline: none;
+    }
+    &::placeholder {
+      color: var(--fourth);
+    }
+  }
+
   .btnsSide {
     .toCart {
       border: none;
@@ -97,35 +114,21 @@ nav {
   }
 }
 
-.searchContainer {
-  input {
-    border: none;
-    outline: none;
-    padding: 5px;
-    background-color: var(--fourth);
-    color: var(--second);
-    border-radius: 10px;
-
-    &:focus {
-      outline: none;
-    }
-    &::placeholder {
-      color: var(--second);
-    }
-  }
-
-  button {
-    width: fit-content;
-    background-color: var(--fourth);
-    color: var(--second);
-  }
-}
-
 .prodSection {
-  .title {
-    padding: 10px;
-    color: var(--second);
+  background-color: var(--second);
+  color: var(--fourth);
+  border-radius: 10px;
+
+  h3 {
+    a {
+      color: var(--fourth);
+
+      svg {
+        font-size: 35px !important;
+      }
+    }
   }
+
   .prodItem {
     background-color: var(--fourth);
     color: var(--second);

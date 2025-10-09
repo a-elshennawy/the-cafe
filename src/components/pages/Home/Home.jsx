@@ -1,4 +1,3 @@
-import SearchComp from "./HomeSections/SearchComp/SearchComp";
 import ColdDrinksComp from "./HomeSections/Products/ColdDrinksComp";
 import HotDrinksComp from "./HomeSections/Products/HotDrinksComp";
 import FoodComp from "./HomeSections/Products/FoodComp";
@@ -8,7 +7,6 @@ export default function Home() {
   return (
     <>
       <section className="container-fluid text-start">
-        <SearchComp />
         <ColdDrinksComp />
         <HotDrinksComp />
         <FoodComp />
