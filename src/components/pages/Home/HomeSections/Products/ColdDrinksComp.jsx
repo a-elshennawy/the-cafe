@@ -43,7 +43,7 @@ export default function ColdDrinksComp() {
           </div>
         )}
         {loading && (
-          <p className="text-center text-whiter">Loading products...</p>
+          <p className="text-center text-white">Loading products...</p>
         )}
         {!loading && products.length === 0 && (
           <p className="text-center text-white">No products available.</p>
