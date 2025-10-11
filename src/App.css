@@ -302,6 +302,30 @@ nav {
   }
 }
 
+.feddbackdashbord {
+  .feedbackCard {
+    background-color: var(--second);
+    padding: 10px;
+    border-radius: 10px;
+
+    h4,
+    h5 {
+      background-color: var(--fourth);
+      color: var(--second);
+      width: fit-content !important;
+      border-radius: 8px;
+      padding: 5px;
+    }
+
+    button {
+      background-color: #fd000079;
+      backdrop-filter: blur(10px);
+      border: 1px solid #fd0000 !important;
+      color: #fff;
+    }
+  }
+}
+
 .feedbackSection {
   border-radius: 10px;
 
@@ -339,13 +363,7 @@ nav {
       background-color: var(--second);
       padding: 20px 10px;
       border-radius: 10px;
-      h4 {
-        background-color: var(--fourth);
-        color: var(--second);
-        width: fit-content;
-        padding: 5px;
-        border-radius: 8px;
-      }
+      h4,
       h5 {
         background-color: var(--fourth);
         color: var(--second);
