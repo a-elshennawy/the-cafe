@@ -12,6 +12,7 @@ const ColdDrinks = lazy(() =>
   import("./components/pages/ColdDrinks/ColdDrinks")
 );
 const HotDrinks = lazy(() => import("./components/pages/HotDrinks/HotDrinks"));
+const Cart = lazy(() => import("./components/pages/Cart/Cart"));
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             </Route>
             <Route path="/staff-login" element={<StaffLogin />} />
             <Route path="/admin" element={<Admin />} />
+            <Route path="/cart" element={<Cart />} />
             <Route />
           </Routes>
         </Suspense>

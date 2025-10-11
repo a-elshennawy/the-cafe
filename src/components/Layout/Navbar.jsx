@@ -31,7 +31,9 @@ export default function Navbar() {
           }
         >
           <button className="toCart">
-            <RiShoppingBagFill />
+            <Link to={"/cart"}>
+              <RiShoppingBagFill />
+            </Link>
           </button>
         </div>
       </nav>

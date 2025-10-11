@@ -1,7 +1,7 @@
 @import url("./fonts.css");
 
 :root {
-  --first: #51a3a3;
+  --first: #285151;
   --second: #75485e;
   --third: #cb904d;
   --fourth: #dfcc74;
@@ -39,6 +39,7 @@ nav {
   background-color: var(--fourth);
   padding: 10px 5px;
   border-radius: 20px;
+  box-shadow: 0 0 10px #0000009d;
   z-index: 1111;
 
   input {
