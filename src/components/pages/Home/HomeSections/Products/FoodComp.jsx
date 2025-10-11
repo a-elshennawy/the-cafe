@@ -49,7 +49,7 @@ export default function FoodComp() {
         )}
         <div className="products-scroll-container">
           {products.map((item) => (
-            <div className="prodItem p-0 col-lg-2 col-md-3 col-5">
+            <div key={item.id} className="prodItem p-0 col-lg-2 col-md-3 col-5">
               <div className="img">
                 <img src={item.image_url} alt="" />
               </div>

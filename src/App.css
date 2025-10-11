@@ -71,6 +71,14 @@ nav {
   }
 }
 
+.homeBtn {
+  background-color: var(--second);
+  a {
+    color: var(--fourth);
+    text-decoration: none;
+  }
+}
+
 .staffLog {
   background-color: var(--second);
   color: var(--fourth);
@@ -182,6 +190,20 @@ nav {
         background-color: var(--second);
         color: var(--fourth);
       }
+    }
+  }
+}
+
+.prodCardDetails {
+  background-color: var(--second);
+  color: var(--fourth);
+  border-radius: 10px;
+  overflow: hidden;
+
+  .actions {
+    button {
+      background-color: var(--fourth);
+      color: var(--second);
     }
   }
 }
