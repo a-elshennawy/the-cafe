@@ -333,6 +333,28 @@ nav {
       color: var(--second);
     }
   }
+
+  .customerFeedBacks {
+    .feedbackItem {
+      background-color: var(--second);
+      padding: 20px 10px;
+      border-radius: 10px;
+      h4 {
+        background-color: var(--fourth);
+        color: var(--second);
+        width: fit-content;
+        padding: 5px;
+        border-radius: 8px;
+      }
+      h5 {
+        background-color: var(--fourth);
+        color: var(--second);
+        width: fit-content;
+        padding: 5px;
+        border-radius: 8px;
+      }
+    }
+  }
 }
 
 .loader {
