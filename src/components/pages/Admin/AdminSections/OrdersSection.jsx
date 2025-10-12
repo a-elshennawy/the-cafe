@@ -40,6 +40,61 @@ export default function OrdersSection() {
     setConfirming(true);
 
     try {
+      // get order details
+      const { data: order, error: fetchError } = await supabase
+        .from("orders")
+        .select()
+        .eq("id", id)
+        .single();
+
+      if (fetchError) {
+        throw fetchError;
+      }
+
+      // insert in revenue
+      const { errr: insertError } = await supabase.from("revenue").insert([
+        {
+          order_id: id,
+          total: order.total,
+        },
+      ]);
+
+      if (insertError) {
+        throw insertError;
+      }
+
+      // delete it from orders
+      const { error: deleteError } = await supabase
+        .from("orders")
+        .delete()
+        .eq("id", id);
+
+      if (deleteError) throw deleteError;
+
+      setSuccess("Order confirmed and moved to revenue successfully");
+
+      // Refresh the feedback list
+      fetchOrders();
+
+      setTimeout(() => setSuccess(null), 3000);
+    } catch (err) {
+      console.error("Error confirming order:", err);
+      setError(err.message || "Failed to confirm order");
+    } finally {
+      setConfirming(false);
+    }
+  };
+
+  const handleDelete = async () => {
+    if (!window.confirm("Are you sure you want to delete this order ?")) {
+      return;
+    }
+
+    setError(null);
+    setSuccess(null);
+    setConfirming(true);
+
+    try {
       const { data, error } = await supabase
         .from("orders")
         .delete()
@@ -50,15 +105,15 @@ export default function OrdersSection() {
         throw error;
       }
 
-      setSuccess("order confirmed successfully");
+      setSuccess("order delted successfully");
 
       // Refresh the feedback list
       fetchOrders();
 
       setTimeout(() => setSuccess(null), 3000);
     } catch (err) {
-      console.error("Error confirming order:", err);
-      setError(err.message || "Failed to confirm order");
+      console.error("Error deleteing order:", err);
+      setError(err.message || "Failed to delete order");
     } finally {
       setConfirming(false);
     }
@@ -95,7 +150,15 @@ export default function OrdersSection() {
               <h5 className="my-2">total : {item.total} EGP</h5>
             </div>
             <div>
-              <button onClick={() => habdleConfirm(id)}>order done</button>
+              <button onClick={() => habdleConfirm(item.id)}>
+                {confirming ? "confirming..." : "confirm order"}
+              </button>
+              <button
+                className="deletBtn"
+                onClick={() => handleDelete(item.id)}
+              >
+                delete order
+              </button>
             </div>
           </div>
         ))}

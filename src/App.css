@@ -343,6 +343,12 @@ nav {
     button {
       background-color: var(--second);
       color: var(--fourth);
+      margin-inline-end: 5px;
+    }
+
+    .deletBtn {
+      background-color: #fd0000;
+      color: #fff;
     }
   }
 }
@@ -368,6 +374,14 @@ nav {
       border: 1px solid #fd0000 !important;
       color: #fff;
     }
+  }
+}
+
+.rev {
+  .revItem {
+    background-color: var(--fourth);
+    color: var(--second);
+    border-radius: 10px;
   }
 }
 

@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { supabase } from "../../lib/supabaseClient";
 import LoadingSpinner from "../../LoadingSpinner";
 import FeedbackSection from "./AdminSections/FeedbackSection";
+import Revenue from "./AdminSections/Revenue";
 
 export default function Admin() {
   const [selectedTab, setSelectedTab] = useState("orders");
@@ -71,11 +72,18 @@ export default function Admin() {
           >
             feedback
           </button>
+          <button
+            onClick={() => setSelectedTab("revenue")}
+            className={selectedTab === "revenue" ? "selected" : ""}
+          >
+            revenue
+          </button>
         </div>
 
         {selectedTab === "inventory" && <InvSection />}
         {selectedTab === "orders" && <OrdersSection />}
         {selectedTab === "feedback" && <FeedbackSection />}
+        {selectedTab === "revenue" && <Revenue />}
       </section>
     </>
   );
