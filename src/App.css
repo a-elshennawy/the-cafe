@@ -381,7 +381,6 @@ nav {
   .revItem {
     background-color: var(--fourth);
     color: var(--second);
-    width: fit-content;
     border-radius: 10px;
 
     h2 {

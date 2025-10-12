@@ -50,15 +50,28 @@ export default function Revenue() {
 
   return (
     <>
-      <div className="rev row justify-content-center align-items-center text-center gap-2 m-0 py-3">
-        <div className="revItem col-lg-3 col-md-5 col-10 py-3 px-1">
-          <h3 className="my-0 mx-auto p-2">today's revenue</h3>
-          <h2 className="my-2 mx-auto">{todayRev} EGP</h2>
-        </div>
-        <div className="revItem col-lg-3 col-md-5 col-10 py-3 px-1">
-          <h3 className="my-0 mx-auto p-2"> total revenue</h3>
-          <h2 className="my-2 mx-auto">{totalRev} EGP</h2>
-        </div>
+      <div className="rev row justify-content-center align-items-center text-center gap-1 m-0 py-3">
+        {error && (
+          <div className="col-12 alert alert-danger" role="alert">
+            {error}
+          </div>
+        )}
+        {loading ? (
+          <div className="col-12 text-center text-white">
+            cehcking revenue...
+          </div>
+        ) : (
+          <>
+            <div className="revItem col-lg-3 col-md-4 col-sm-4 col-12 py-3 px-1">
+              <h1 className="my-0 p-2">today revenue</h1>
+              <h2 className="my-2 mx-auto">{todayRev} EGP</h2>
+            </div>
+            <div className="revItem col-lg-3 col-md-4 col-sm-4 col-12 py-3 px-1">
+              <h1 className="my-0 p-2"> total revenue</h1>
+              <h2 className="my-2 mx-auto">{totalRev} EGP</h2>
+            </div>
+          </>
+        )}
       </div>
     </>
   );
