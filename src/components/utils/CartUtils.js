@@ -3,7 +3,6 @@ export const addToCart = (id) => {
   try {
     // Get existing items from localStorage
     const existingItems = localStorage.getItem("ordereditems");
-
     const itemsArray = existingItems ? JSON.parse(existingItems) : [];
 
     // Check if item already exists
@@ -20,6 +19,7 @@ export const addToCart = (id) => {
 
     // Save back to localStorage
     localStorage.setItem("ordereditems", JSON.stringify(itemsArray));
+    window.dispatchEvent(new Event("cartUpdated"));
     console.log("Saved to localStorage:", JSON.stringify(itemsArray));
 
     return true;
@@ -30,4 +30,32 @@ export const addToCart = (id) => {
 };
 
 // getting ordered to view them
-export const getCartItems = () => {};
+export const getCartItems = () => {
+  try {
+    const items = localStorage.getItem("ordereditems");
+    return items ? JSON.parse(items) : [];
+  } catch (err) {
+    console.error("Error getting cart items:", err);
+    return [];
+  }
+};
+
+// remove and item form orders
+export const removeFromCart = (id) => {
+  try {
+    const existingItems = localStorage.getItem("ordereditems");
+    const itemsArray = existingItems ? JSON.parse(existingItems) : [];
+
+    const filteredItems = itemsArray.filter((item) => item !== id);
+
+    localStorage.setItem("ordereditems", JSON.stringify(filteredItems));
+  } catch (err) {
+    console.error("Error removing item from cart:", error);
+  }
+};
+
+// get items counter (return a number)
+export const getCartCount = () => {
+  const items = getCartItems();
+  return items.length;
+};

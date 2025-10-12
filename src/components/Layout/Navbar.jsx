@@ -1,8 +1,27 @@
 import { RiShoppingBagFill } from "react-icons/ri";
 import { Link, useLocation } from "react-router-dom";
+import { getCartCount } from "../utils/CartUtils";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
   const location = useLocation();
+  const [cartCount, setCartCount] = useState(0);
+
+  useEffect(() => {
+    // Initial count
+    setCartCount(getCartCount());
+
+    // Listen for cart updates
+    const handleCartUpdate = () => {
+      setCartCount(getCartCount());
+    };
+
+    window.addEventListener("cartUpdated", handleCartUpdate);
+
+    return () => {
+      window.removeEventListener("cartUpdated", handleCartUpdate);
+    };
+  }, []);
 
   return (
     <>
@@ -32,6 +51,7 @@ export default function Navbar() {
         >
           <button className="toCart">
             <Link to={"/cart"}>
+              <span className="cartCount">{cartCount}</span>
               <RiShoppingBagFill />
             </Link>
           </button>
@@ -40,5 +60,3 @@ export default function Navbar() {
     </>
   );
 }
-
-// plus 2 col-lg-9 col-md-7 col-4 text-end btnsSide
