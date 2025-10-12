@@ -10,6 +10,26 @@ export default function OrdersSection() {
 
   useEffect(() => {
     fetchOrders();
+
+    const channel = supabase
+      .channel("orders_changes")
+      .on(
+        "postgres_changes",
+        {
+          event: "*",
+          schema: "public",
+          table: "orders",
+        },
+        (payload) => {
+          console.log("orders changed:", payload);
+          fetchOrders();
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, []);
 
   const fetchOrders = async () => {

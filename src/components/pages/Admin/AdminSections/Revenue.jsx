@@ -9,6 +9,27 @@ export default function Revenue() {
 
   useEffect(() => {
     fetchRev();
+
+    const channel = supabase
+      .channel("revenue_changes")
+      .on(
+        "postgres_changes",
+        {
+          event: "*", // Listen to all events (INSERT, UPDATE, DELETE)
+          schema: "public",
+          table: "revenue",
+        },
+        (payload) => {
+          console.log("Revenue changed:", payload);
+          fetchRev(); // Refetch data when changes occur
+        }
+      )
+      .subscribe();
+
+    // Cleanup subscription on unmount
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, []);
 
   const fetchRev = async () => {

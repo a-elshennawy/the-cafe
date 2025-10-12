@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { supabase } from "../../../../lib/supabaseClient";
 import Swiper from "swiper";
 import { Autoplay } from "swiper/modules";
@@ -12,9 +12,30 @@ export default function FeedbackInput() {
   const [success, setSuccess] = useState(null);
   const [customerName, setCustomerName] = useState("");
   const [feedbackText, setFeedbackText] = useState("");
+  const swiperRef = useRef(null);
 
   useEffect(() => {
     fetchFeedback();
+
+    const channel = supabase
+      .channel("feedback_changes")
+      .on(
+        "postgres_changes",
+        {
+          event: "*",
+          schema: "public",
+          table: "feedback",
+        },
+        (payload) => {
+          console.log("feedback changed:", payload);
+          fetchFeedback();
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, []);
 
   const fetchFeedback = async () => {
@@ -35,8 +56,14 @@ export default function FeedbackInput() {
   };
 
   useEffect(() => {
+    if (feedback.length === 0) return;
+
+    if (swiperRef.current) {
+      swiperRef.current.destroy(true, true);
+    }
+
     // Initialize Swiper after the component mounts
-    const swiper = new Swiper(".swiper", {
+    swiperRef.current = new Swiper(".swiper", {
       modules: [Autoplay],
       speed: 3000,
       spaceBetween: 30,
@@ -52,9 +79,11 @@ export default function FeedbackInput() {
 
     // Cleanup
     return () => {
-      if (swiper) swiper.destroy();
+      if (swiperRef.current) {
+        swiperRef.current.destroy(true, true);
+      }
     };
-  }, []);
+  }, [feedback]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

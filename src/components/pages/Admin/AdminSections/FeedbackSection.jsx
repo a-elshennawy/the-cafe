@@ -10,6 +10,26 @@ export default function FeedbackSection() {
 
   useEffect(() => {
     fetchFeedback();
+
+    const channel = supabase
+      .channel("feedback_changes")
+      .on(
+        "postgres_changes",
+        {
+          event: "*",
+          schema: "public",
+          table: "feedback",
+        },
+        (payload) => {
+          console.log("feedback changed:", payload);
+          fetchFeedback();
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, []);
 
   const fetchFeedback = async () => {

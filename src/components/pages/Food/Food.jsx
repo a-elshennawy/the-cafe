@@ -11,6 +11,26 @@ export default function Food() {
 
   useEffect(() => {
     fetchProducts();
+
+    const channel = supabase
+      .channel("products_changes")
+      .on(
+        "postgres_changes",
+        {
+          event: "*",
+          schema: "public",
+          table: "products",
+        },
+        (payload) => {
+          console.log("products changed:", payload);
+          fetchProducts();
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, []);
 
   const fetchProducts = async () => {
