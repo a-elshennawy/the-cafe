@@ -1,55 +1,104 @@
+import { useState, useEffect } from "react";
+import { supabase } from "../../../lib/supabaseClient";
+
 export default function OrdersSection() {
+  const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null);
+  const [confirming, setConfirming] = useState(false);
+
+  useEffect(() => {
+    fetchOrders();
+  }, []);
+
+  const fetchOrders = async () => {
+    setLoading(true);
+
+    const { data, error } = await supabase
+      .from("orders")
+      .select("*")
+      .order("id", { ascending: false });
+
+    if (error) {
+      console.error("error fetching orders:", error.message);
+      setError(error.message);
+    } else {
+      setOrders(data || []);
+    }
+
+    setLoading(false);
+  };
+
+  const habdleConfirm = async (id) => {
+    if (!window.confirm("Are you sure this order is done ?")) {
+      return;
+    }
+
+    setError(null);
+    setSuccess(null);
+    setConfirming(true);
+
+    try {
+      const { data, error } = await supabase
+        .from("orders")
+        .delete()
+        .eq("id", id)
+        .select();
+
+      if (error) {
+        throw error;
+      }
+
+      setSuccess("order confirmed successfully");
+
+      // Refresh the feedback list
+      fetchOrders();
+
+      setTimeout(() => setSuccess(null), 3000);
+    } catch (err) {
+      console.error("Error confirming order:", err);
+      setError(err.message || "Failed to confirm order");
+    } finally {
+      setConfirming(false);
+    }
+  };
+
   return (
     <>
       <div className="OrdersSection py-3 px-1 row justify-content-center align-items-center m-0 gap-1">
-        <div className="orderItem p-3 col-lg-2 col-10">
-          <h4 className="pb-2">customer name</h4>
-          <div className="pb-1">
-            <h6 className="my-2 p-0">2x product name</h6>
-            <h6 className="my-2 p-0">3x product name</h6>
-            <h6 className="my-2 p-0">5x product name</h6>
-            <h5 className="my-2">total : 200 EGP</h5>
+        {error && (
+          <div
+            className="alert alert-danger p-2 my-2 col-lg-3 col-md-5 col-12"
+            role="alert"
+          >
+            {error}
           </div>
-          <div>
-            <button>order done</button>
+        )}
+        {success && (
+          <div
+            className="alert alert-success p-2 my-2 col-lg-3 col-md-5 col-12"
+            role="alert"
+          >
+            {success}
           </div>
-        </div>
-        <div className="orderItem p-3 col-lg-2 col-10">
-          <h4 className="pb-2">customer name</h4>
-          <div className="pb-1">
-            <h6 className="my-2 p-0">2x product name</h6>
-            <h6 className="my-2 p-0">3x product name</h6>
-            <h6 className="my-2 p-0">5x product name</h6>
-            <h5 className="my-2">total : 200 EGP</h5>
+        )}
+        {orders.map((item) => (
+          <div key={item.id} className="orderItem p-3 col-lg-2 col-10">
+            <h4 className="pb-2">{item.customerName}</h4>
+            <div className="pb-1">
+              {item.items.map((product, index) => (
+                <h6 key={index} className="my-2 p-0">
+                  {product.amount}x {product.name}
+                </h6>
+              ))}
+              <h5 className="my-2">total : {item.total} EGP</h5>
+            </div>
+            <div>
+              <button onClick={() => habdleConfirm(id)}>order done</button>
+            </div>
           </div>
-          <div>
-            <button>order done</button>
-          </div>
-        </div>
-        <div className="orderItem p-3 col-lg-2 col-10">
-          <h4 className="pb-2">customer name</h4>
-          <div className="pb-1">
-            <h6 className="my-2 p-0">2x product name</h6>
-            <h6 className="my-2 p-0">3x product name</h6>
-            <h6 className="my-2 p-0">5x product name</h6>
-            <h5 className="my-2">total : 200 EGP</h5>
-          </div>
-          <div>
-            <button>order done</button>
-          </div>
-        </div>
-        <div className="orderItem p-3 col-lg-2 col-10">
-          <h4 className="pb-2">customer name</h4>
-          <div className="pb-1">
-            <h6 className="my-2 p-0">2x product name</h6>
-            <h6 className="my-2 p-0">3x product name</h6>
-            <h6 className="my-2 p-0">5x product name</h6>
-            <h5 className="my-2">total : 200 EGP</h5>
-          </div>
-          <div>
-            <button>order done</button>
-          </div>
-        </div>
+        ))}
       </div>
     </>
   );

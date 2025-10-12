@@ -47,10 +47,11 @@ export const removeFromCart = (id) => {
     const itemsArray = existingItems ? JSON.parse(existingItems) : [];
 
     const filteredItems = itemsArray.filter((item) => item !== id);
+    window.dispatchEvent(new Event("cartUpdated"));
 
     localStorage.setItem("ordereditems", JSON.stringify(filteredItems));
   } catch (err) {
-    console.error("Error removing item from cart:", error);
+    console.error("Error removing item from cart:", err);
   }
 };
 
@@ -58,4 +59,13 @@ export const removeFromCart = (id) => {
 export const getCartCount = () => {
   const items = getCartItems();
   return items.length;
+};
+
+// clearing cart after checkout
+export const clearCart = () => {
+  try {
+    localStorage.removeItem("ordereditems");
+  } catch (error) {
+    console.error("Error clearing cart:", error);
+  }
 };

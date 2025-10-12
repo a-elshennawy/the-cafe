@@ -420,7 +420,7 @@ nav {
   }
 }
 
-.cardForm {
+.cartForm {
   background-color: var(--second);
   padding: 20px;
   border-radius: 10px;
@@ -448,19 +448,10 @@ nav {
     font-weight: bold;
 
     .item {
-      .count {
-        button {
-          padding: 0 !important;
-          background-color: transparent;
-          color: var(--fourth);
-
-          svg {
-            font-size: 20px;
-          }
-        }
-        h6 {
-          display: inline;
-        }
+      button {
+        padding: 0 !important;
+        background-color: transparent;
+        color: var(--fourth);
       }
     }
   }
