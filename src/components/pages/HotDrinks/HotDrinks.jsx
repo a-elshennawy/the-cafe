@@ -60,7 +60,7 @@ export default function HotDrinks() {
               <h5 className="m-0 p-0">{item.price} EGP</h5>
             </div>
             <div className="actions pb-2 px-1">
-              <button>order</button>
+              <button>add to order</button>
             </div>
           </div>
         ))}

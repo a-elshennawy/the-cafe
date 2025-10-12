@@ -74,6 +74,7 @@ nav {
 
 .homeBtn {
   background-color: var(--second);
+  box-shadow: 0 0 10px #0000009d;
   a {
     color: var(--fourth);
     text-decoration: none;
@@ -395,6 +396,57 @@ nav {
         border-radius: 8px;
       }
     }
+  }
+}
+
+.cardForm {
+  background-color: var(--second);
+  padding: 20px;
+  border-radius: 10px;
+
+  input {
+    background-color: var(--fourth);
+    color: var(--second);
+    border: none;
+    outline: none;
+    padding: 5px;
+    border-radius: 10px;
+
+    &::placeholder {
+      color: var(--second);
+    }
+
+    &:focus {
+      border: none;
+      outline: none;
+    }
+  }
+
+  .orderedItems {
+    color: var(--fourth);
+    font-weight: bold;
+
+    .item {
+      .count {
+        button {
+          padding: 0 !important;
+          background-color: transparent;
+          color: var(--fourth);
+
+          svg {
+            font-size: 20px;
+          }
+        }
+        h6 {
+          display: inline;
+        }
+      }
+    }
+  }
+
+  button {
+    background-color: var(--fourth);
+    color: var(--second);
   }
 }
 
