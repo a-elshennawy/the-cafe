@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { supabase } from "../../../../lib/supabaseClient";
+import { addToCart } from "../../../../utils/CartUtils";
 
 export default function FoodComp() {
   const [products, setProducts] = useState([]);
@@ -27,6 +28,15 @@ export default function FoodComp() {
       setProducts(data || []);
     }
     setLoading(false);
+  };
+
+  const handleAddToCart = (id) => {
+    const wasAdded = addToCart(id);
+    if (wasAdded) {
+      console.log("Item added to cart");
+    } else {
+      console.log("Item already in cart");
+    }
   };
   return (
     <>
@@ -58,7 +68,9 @@ export default function FoodComp() {
                 <h5 className="m-0 p-0">{item.price} EGP</h5>
               </div>
               <div className="actions pb-2 px-1">
-                <button>add to order</button>
+                <button onClick={() => handleAddToCart(item.id)}>
+                  add to order
+                </button>
               </div>
             </div>
           ))}

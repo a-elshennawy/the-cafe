@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { supabase } from "../../lib/supabaseClient";
 import { Link } from "react-router-dom";
 import LoadingSpinner from "../../LoadingSpinner";
+import { addToCart } from "../../utils/CartUtils";
 
 export default function HotDrinks() {
   const [products, setProducts] = useState([]);
@@ -28,6 +29,16 @@ export default function HotDrinks() {
     }
     setLoading(false);
   };
+
+  const handleAddToCart = (id) => {
+    const wasAdded = addToCart(id);
+    if (wasAdded) {
+      console.log("Item added to cart");
+    } else {
+      console.log("Item already in cart");
+    }
+  };
+
   return (
     <>
       <div className="row justify-content-center align-items-center p-2 m-1 gap-2">
@@ -60,7 +71,9 @@ export default function HotDrinks() {
               <h5 className="m-0 p-0">{item.price} EGP</h5>
             </div>
             <div className="actions pb-2 px-1">
-              <button>add to order</button>
+              <button onClick={() => handleAddToCart(item.id)}>
+                add to order
+              </button>
             </div>
           </div>
         ))}
