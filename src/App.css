@@ -13,7 +13,7 @@
 * {
   box-sizing: border-box;
   text-transform: capitalize !important;
-  font-family: ubuntu;
+  font-family: ubuntu, zain;
 }
 
 body {
