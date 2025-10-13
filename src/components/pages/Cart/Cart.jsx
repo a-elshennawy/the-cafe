@@ -113,7 +113,7 @@ export default function Cart() {
       clearCart();
       setProducts([]);
       setCustomerName("");
-      alert("Order placed successfully! kindly wait for the staff ♥️");
+      alert("Order placed successfully!");
       setSubmitting(false);
     }
   };

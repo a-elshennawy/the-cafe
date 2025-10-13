@@ -25,7 +25,7 @@ img {
 }
 
 button {
-  padding: 5px 10px !important;
+  padding: 5px !important;
   border: none !important;
   border-radius: 10px !important;
   font-weight: bold !important;
@@ -201,7 +201,7 @@ nav {
 .navTabs {
   position: sticky;
   top: 10px;
-  padding: 10px 5px;
+  padding: 10px;
   border-radius: 20px;
   background-color: var(--fourth);
   z-index: 1111;
