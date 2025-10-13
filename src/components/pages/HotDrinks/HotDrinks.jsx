@@ -8,6 +8,7 @@ export default function HotDrinks() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     fetchProducts();
@@ -31,6 +32,16 @@ export default function HotDrinks() {
     return () => {
       supabase.removeChannel(channel);
     };
+  }, []);
+
+  useEffect(() => {
+    const handleSearchChange = (e) => {
+      setSearchTerm(e.detail);
+    };
+
+    window.addEventListener("searchChanged", handleSearchChange);
+    return () =>
+      window.removeEventListener("searchChanged", handleSearchChange);
   }, []);
 
   const fetchProducts = async () => {
@@ -59,6 +70,10 @@ export default function HotDrinks() {
     }
   };
 
+  const filteredProducts = products.filter((item) =>
+    item.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <>
       <div className="row justify-content-center align-items-center p-2 m-1 gap-2">
@@ -77,7 +92,7 @@ export default function HotDrinks() {
             <p>{error}</p>
           </div>
         )}
-        {products.map((item) => (
+        {filteredProducts.map((item) => (
           <div
             className="prodCardDetails p-0 col-lg-2 col-md-3 col-11"
             key={item.id}

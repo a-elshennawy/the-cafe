@@ -1,16 +1,40 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { supabase } from "../../../../lib/supabaseClient";
 import { addToCart } from "../../../../utils/CartUtils";
+import Swiper from "swiper";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
 
 export default function FoodComp() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const foodSwiperRef = useRef(null);
 
   useEffect(() => {
     fetchProducts();
+
+    const channel = supabase
+      .channel("products_changes")
+      .on(
+        "postgres_changes",
+        {
+          event: "*",
+          schema: "public",
+          table: "products",
+        },
+        (payload) => {
+          console.log("products changed:", payload);
+          fetchProducts();
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, []);
 
   const fetchProducts = async () => {
@@ -38,6 +62,44 @@ export default function FoodComp() {
       console.log("Item already in cart");
     }
   };
+
+  useEffect(() => {
+    if (products === 0) return;
+
+    if (foodSwiperRef.current) {
+      foodSwiperRef.current.destroy(true, true);
+    }
+
+    foodSwiperRef.current = new Swiper(".food-swiper", {
+      modules: [Autoplay],
+      speed: 3500,
+      spaceBetween: 30,
+      slidesPerView: 2.5,
+      autoplay: {
+        delay: 0,
+        disableOnInteraction: false,
+      },
+      loop: true,
+      loopedSlides: products.length,
+      allowTouchMove: true,
+      breakpoints: {
+        768: {
+          slidesPerView: 3.5,
+          spaceBetween: 20,
+        },
+        1024: {
+          slidesPerView: 5.5,
+          spaceBetween: 30,
+        },
+      },
+    });
+
+    return () => {
+      if (foodSwiperRef.current) {
+        foodSwiperRef.current.destroy(true, true);
+      }
+    };
+  }, [products]);
   return (
     <>
       <div className="prodSection row justify-content-start align-items-center gap-1 p-2 m-1">
@@ -57,23 +119,25 @@ export default function FoodComp() {
         {!loading && products.length === 0 && (
           <p className="text-center text-white">No products available.</p>
         )}
-        <div className="products-scroll-container">
-          {products.map((item) => (
-            <div key={item.id} className="prodItem p-0 col-lg-2 col-md-3 col-5">
-              <div className="img">
-                <img src={item.image_url} alt="" />
+        <div className="swiper food-swiper">
+          <div className="swiper-wrapper">
+            {products.map((item) => (
+              <div key={item.id} className="swiper-slide prodItem">
+                <div className="img">
+                  <img src={item.image_url} alt="" />
+                </div>
+                <div className="details p-1">
+                  <h4 className="m-0 pb-1">{item.name}</h4>
+                  <h5 className="m-0 p-0">{item.price} EGP</h5>
+                </div>
+                <div className="actions pb-2 px-1">
+                  <button onClick={() => handleAddToCart(item.id)}>
+                    add to order
+                  </button>
+                </div>
               </div>
-              <div className="details p-1">
-                <h4 className="m-0 pb-1">{item.name}</h4>
-                <h5 className="m-0 p-0">{item.price} EGP</h5>
-              </div>
-              <div className="actions pb-2 px-1">
-                <button onClick={() => handleAddToCart(item.id)}>
-                  add to order
-                </button>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </>

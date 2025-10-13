@@ -12,7 +12,7 @@ export default function FeedbackInput() {
   const [success, setSuccess] = useState(null);
   const [customerName, setCustomerName] = useState("");
   const [feedbackText, setFeedbackText] = useState("");
-  const swiperRef = useRef(null);
+  const feedbackSwiperRef = useRef(null);
 
   useEffect(() => {
     fetchFeedback();
@@ -58,12 +58,12 @@ export default function FeedbackInput() {
   useEffect(() => {
     if (feedback.length === 0) return;
 
-    if (swiperRef.current) {
-      swiperRef.current.destroy(true, true);
+    if (feedbackSwiperRef.current) {
+      feedbackSwiperRef.current.destroy(true, true);
     }
 
     // Initialize Swiper after the component mounts
-    swiperRef.current = new Swiper(".swiper", {
+    feedbackSwiperRef.current = new Swiper(".feedBack-swiper", {
       modules: [Autoplay],
       speed: 3000,
       spaceBetween: 30,
@@ -79,8 +79,8 @@ export default function FeedbackInput() {
 
     // Cleanup
     return () => {
-      if (swiperRef.current) {
-        swiperRef.current.destroy(true, true);
+      if (feedbackSwiperRef.current) {
+        feedbackSwiperRef.current.destroy(true, true);
       }
     };
   }, [feedback]);
@@ -168,7 +168,7 @@ export default function FeedbackInput() {
           )}
         </form>
         <div className="customerFeedBacks col-lg-5 col-12">
-          <div className="swiper">
+          <div className="swiper feedBack-swiper">
             <div className="swiper-wrapper">
               {feedback.map((item) => (
                 <div

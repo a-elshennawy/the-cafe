@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 export default function Navbar() {
   const location = useLocation();
   const [cartCount, setCartCount] = useState(0);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     // Initial count
@@ -23,6 +24,14 @@ export default function Navbar() {
     };
   }, []);
 
+  const handleSearch = (e) => {
+    const value = e.target.value;
+    setSearchTerm(value);
+
+    // Dispatch custom event that pages can listen to
+    window.dispatchEvent(new CustomEvent("searchChanged", { detail: value }));
+  };
+
   return (
     <>
       <nav className="row justify-content-start align-items-center m-2">
@@ -38,6 +47,8 @@ export default function Navbar() {
             className="col-lg-2 col-md-3 col-4"
             type="search"
             placeholder="search..."
+            value={searchTerm}
+            onChange={handleSearch}
           />
         ) : null}
         <div
