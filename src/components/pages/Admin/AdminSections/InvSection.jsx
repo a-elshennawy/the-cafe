@@ -427,7 +427,7 @@ export default function InvSection() {
             )}
           </div>
         </form>
-        <div className="productSide p-0 col-lg-6 col-md-5 col-12 row justify-content-center align-items-center m-0 gap-2">
+        <div className="productSide p-0 col-lg-6 col-md-5 col-12 row justify-content-around align-items-center m-0 gap-2">
           {loading ? (
             <p className="text-center">Loading products...</p>
           ) : filteredProducts.length === 0 ? (

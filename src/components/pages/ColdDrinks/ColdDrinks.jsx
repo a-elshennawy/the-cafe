@@ -76,8 +76,8 @@ export default function ColdDrinks() {
 
   return (
     <>
-      <div className="row justify-content-center align-items-center p-2 m-1 gap-2">
-        <div className="col-12">
+      <div className="row justify-content-start align-items-center p-2 m-1 gap-2">
+        <div className="col-12 p-0">
           <button className="homeBtn text-start">
             <Link to={"/"}>Home</Link>
           </button>
@@ -94,7 +94,7 @@ export default function ColdDrinks() {
         )}
         {filteredProducts.map((item) => (
           <div
-            className="prodCardDetails p-0 col-lg-2 col-md-3 col-10"
+            className="prodCardDetails p-0 col-lg-2 col-md-3 col-5"
             key={item.id}
           >
             <div className="img">

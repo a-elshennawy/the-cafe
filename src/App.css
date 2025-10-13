@@ -240,6 +240,10 @@ nav {
         background-color: var(--fourth);
         color: var(--second);
 
+        &::placeholder {
+          color: var(--second);
+        }
+
         &:focus {
           border: none;
           outline: none;

@@ -141,7 +141,7 @@ export default function OrdersSection() {
 
   return (
     <>
-      <div className="OrdersSection py-3 px-1 row justify-content-center align-items-center m-0 gap-1">
+      <div className="OrdersSection py-3 px-1 row justify-content-start align-items-center m-0 gap-1">
         {error && (
           <div className="alert alert-danger p-2 my-2 col-12" role="alert">
             {error}

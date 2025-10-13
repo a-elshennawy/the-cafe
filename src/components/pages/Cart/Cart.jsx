@@ -121,7 +121,7 @@ export default function Cart() {
   return (
     <>
       <div className="row justify-content-center align-items-center p-2 m-1 gap-2">
-        <div className="col-12">
+        <div className="col-12 p-0">
           <button className="homeBtn text-start">
             <Link to={"/"}>Home</Link>
           </button>
