@@ -72,7 +72,7 @@ export default function FeedbackInput() {
         delay: 0,
         disableOnInteraction: false,
       },
-      loop: true,
+      loop: feedback.length > 4,
       loopedSlides: feedback.length,
       allowTouchMove: true,
     });

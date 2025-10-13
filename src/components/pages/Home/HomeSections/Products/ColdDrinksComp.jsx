@@ -79,7 +79,7 @@ export default function ColdDrinksComp() {
         delay: 0,
         disableOnInteraction: false,
       },
-      loop: true,
+      loop: products.length > 4,
       loopedSlides: products.length,
       allowTouchMove: true,
       breakpoints: {
