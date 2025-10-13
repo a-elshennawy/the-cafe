@@ -3,6 +3,7 @@ import { supabase } from "../../lib/supabaseClient";
 import { Link } from "react-router-dom";
 import LoadingSpinner from "../../LoadingSpinner";
 import { addToCart } from "../../utils/CartUtils";
+import { motion } from "motion/react";
 
 export default function Food() {
   const [products, setProducts] = useState([]);
@@ -93,8 +94,12 @@ export default function Food() {
           </div>
         )}
         {filteredProducts.map((item) => (
-          <div
-            className="prodCardDetails p-0 col-lg-2 col-md-3 col-5"
+          <motion.div
+            initial={{ x: 100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: false, amount: 0.3 }}
+            className="prodCardDetails p-0 col-lg-2 col-md-3 col-9"
             key={item.id}
           >
             <div className="img">
@@ -110,7 +115,7 @@ export default function Food() {
                 add to order
               </button>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </>

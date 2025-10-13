@@ -462,6 +462,15 @@ nav {
   transform: translate(-50%, -50%);
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 @media screen and (max-width: 1024px) {
   :root {
     font-size: 14px;
