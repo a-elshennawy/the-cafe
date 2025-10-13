@@ -128,8 +128,8 @@ export default function HotDrinksComp() {
                   <img src={item.image_url} alt="" />
                 </div>
                 <div className="details p-1">
-                  <h4 className="m-0 pb-1">{item.name}</h4>
-                  <h5 className="m-0 p-0">{item.price} EGP</h5>
+                  <h6 className="m-0 pb-1">{item.name}</h6>
+                  <h6 className="m-0 p-0">{item.price} EGP</h6>
                 </div>
                 <div className="actions pb-2 px-1">
                   <button onClick={() => handleAddToCart(item.id)}>

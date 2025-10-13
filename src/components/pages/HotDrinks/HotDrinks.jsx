@@ -94,13 +94,13 @@ export default function HotDrinks() {
         )}
         {filteredProducts.map((item) => (
           <div
-            className="prodCardDetails p-0 col-lg-2 col-md-3 col-11"
+            className="prodCardDetails p-0 col-lg-2 col-md-3 col-10"
             key={item.id}
           >
             <div className="img">
               <img src={item.image_url} alt={item.name} />
             </div>
-            <div className="details p-1">
+            <div className="details p-2">
               <h4 className="m-0 pb-1">{item.name}</h4>
               <p className="m-0 pb-1">{item.desc}</p>
               <h5 className="m-0 p-0">{item.price} EGP</h5>

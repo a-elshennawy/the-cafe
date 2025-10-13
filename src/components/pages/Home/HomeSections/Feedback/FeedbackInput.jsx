@@ -167,7 +167,7 @@ export default function FeedbackInput() {
             </div>
           )}
         </form>
-        <div className="customerFeedBacks col-lg-5 col-12">
+        <div className="customerFeedBacks col-lg-5 col-12 p-0">
           <div className="swiper feedBack-swiper">
             <div className="swiper-wrapper">
               {feedback.map((item) => (
@@ -175,8 +175,8 @@ export default function FeedbackInput() {
                   className="swiper-slide feedbackItem text-start"
                   key={item.id}
                 >
-                  <h4 className="mt-0 mb-2">{item.customerName}</h4>
-                  <h5 className="m-0">{item.feedbackText}</h5>
+                  <h6 className="mt-0 mb-2">{item.customerName}</h6>
+                  <p className="m-0">{item.feedbackText}</p>
                 </div>
               ))}
             </div>

@@ -6,6 +6,8 @@
   --third: #cb904d;
   --fourth: #dfcc74;
   --fifth: #c3e991;
+
+  font-size: 16px;
 }
 
 * {
@@ -165,6 +167,12 @@ nav {
     color: var(--second);
     border-radius: 10px;
     overflow: hidden;
+
+    .details {
+      h6 {
+        font-size: 1.25rem;
+      }
+    }
 
     .actions {
       button {
@@ -389,8 +397,8 @@ nav {
       background-color: var(--second);
       padding: 20px 10px;
       border-radius: 10px;
-      h4,
-      h5 {
+      h6,
+      p {
         background-color: var(--fourth);
         color: var(--second);
         width: fit-content;
@@ -448,4 +456,22 @@ nav {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 1024px) {
+  :root {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  :root {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    font-size: 14px;
+  }
 }
