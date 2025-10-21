@@ -127,7 +127,6 @@ export default function Cart() {
   };
 
   const handelCardCheckout = async () => {
-    setLoading(true);
     window.location.href = stripe_pay_link;
   };
 
@@ -202,13 +201,17 @@ export default function Cart() {
               ? "Processing..."
               : `pay cash (${calculateTotal()} EGP)`}
           </button>
+          <button
+            type="button"
+            className="cardPay"
+            onClick={handelCardCheckout}
+          >
+            pay by card
+            <span className="ms-1">
+              <FaCreditCard />
+            </span>
+          </button>
         </form>
-        <button onClick={handelCardCheckout}>
-          pay by card
-          <span className="ms-1">
-            <FaCreditCard />
-          </span>
-        </button>
       </div>
     </>
   );
