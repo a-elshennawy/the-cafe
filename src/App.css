@@ -413,7 +413,8 @@ nav {
   }
 }
 
-.cartForm {
+.cartForm,
+.checkoutCard {
   background-color: var(--second);
   padding: 20px;
   border-radius: 10px;
@@ -452,6 +453,26 @@ nav {
   button {
     background-color: var(--fourth);
     color: var(--second);
+  }
+}
+
+.sucessPayment {
+  h5 {
+    background-color: #00ff37;
+    width: fit-content !important;
+    margin: 0px auto;
+    padding: 5px;
+    border-radius: 10px;
+  }
+}
+
+.errorPayment {
+  h5 {
+    background-color: #fd0000;
+    width: fit-content !important;
+    margin: 0px auto;
+    padding: 5px;
+    border-radius: 10px;
   }
 }
 

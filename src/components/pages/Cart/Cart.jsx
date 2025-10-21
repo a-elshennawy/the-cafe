@@ -1,9 +1,14 @@
 import { useEffect, useState } from "react";
-import { FaCircleMinus, FaCirclePlus } from "react-icons/fa6";
+import { FaCircleMinus, FaCirclePlus, FaCreditCard } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { getCartItems, removeFromCart, clearCart } from "../../utils/CartUtils";
 import { supabase } from "../../lib/supabaseClient";
 import { MdCancel } from "react-icons/md";
+import { loadStripe } from "@stripe/stripe-js";
+
+const stripePromise = loadStripe(
+  "pk_test_51SKmEyDuPlRq9CpDOwlNlkWLHwONJugGNE2RwM6VtfHAfRjJ7qTDBFTg5hPn81tibzgEjnqzzots6Cy5n94Ak7ND00i0y8w7yp"
+);
 
 export default function Cart() {
   const [products, setProducts] = useState([]);
@@ -11,6 +16,9 @@ export default function Cart() {
   const [customerName, setCustomerName] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState(null);
+
+  // demo product
+  const stripe_pay_link = "https://buy.stripe.com/test_fZu9ATg3r5TS5lneoy4AU00";
 
   useEffect(() => {
     fetchProducts();
@@ -118,6 +126,11 @@ export default function Cart() {
     }
   };
 
+  const handelCardCheckout = async () => {
+    setLoading(true);
+    window.location.href = stripe_pay_link;
+  };
+
   return (
     <>
       <div className="row justify-content-center align-items-center p-2 m-1 gap-2">
@@ -135,7 +148,6 @@ export default function Cart() {
             placeholder="your name is ?"
             value={customerName}
             onChange={(e) => setCustomerName(e.target.value)}
-            required
           />
 
           {error && (
@@ -190,8 +202,13 @@ export default function Cart() {
               ? "Processing..."
               : `pay cash (${calculateTotal()} EGP)`}
           </button>
-          <button>pay by credit</button>
         </form>
+        <button onClick={handelCardCheckout}>
+          pay by card
+          <span className="ms-1">
+            <FaCreditCard />
+          </span>
+        </button>
       </div>
     </>
   );
