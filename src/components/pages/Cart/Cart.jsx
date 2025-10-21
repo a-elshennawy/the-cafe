@@ -181,11 +181,16 @@ export default function Cart() {
               ))
             )}
           </div>
-          <button type="submit" disabled={submitting || products.length === 0}>
+          <button
+            className="me-2"
+            type="submit"
+            disabled={submitting || products.length === 0}
+          >
             {submitting
               ? "Processing..."
-              : `Checkout (${calculateTotal()} EGP)`}
+              : `pay cash (${calculateTotal()} EGP)`}
           </button>
+          <button>pay by credit</button>
         </form>
       </div>
     </>
