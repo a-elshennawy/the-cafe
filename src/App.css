@@ -304,8 +304,13 @@ nav {
   }
 }
 
+.alertDiv {
+  width: fit-content !important;
+}
+
 .OrdersSection {
   color: var(--second);
+
   .orderItem {
     background-color: var(--fourth);
     color: var(--second);

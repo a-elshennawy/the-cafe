@@ -206,7 +206,7 @@ export default function Cart() {
             className="cardPay"
             onClick={handelCardCheckout}
           >
-            pay by card
+            pay by card (demo)
             <span className="ms-1">
               <FaCreditCard />
             </span>

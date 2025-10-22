@@ -86,19 +86,17 @@ export default function FeedbackSection() {
     <>
       <div className="feddbackdashbord py-3 px-0 col-12 row justify-content-start align-items-center m-0 gap-2">
         {error && (
-          <div
-            className="alert alert-danger p-2 my-2 col-lg-3 col-md-5 col-12"
-            role="alert"
-          >
-            {error}
+          <div className="p-2 my-2 col-12">
+            <h6 className="alertDiv alert alert-danger" role="alert">
+              {error}
+            </h6>
           </div>
         )}
         {success && (
-          <div
-            className="alert alert-success p-2 my-2 col-lg-3 col-md-5 col-12"
-            role="alert"
-          >
-            {success}
+          <div className="p-2 my-2 col-12">
+            <h6 className="alertDiv alert alert-success" role="alert">
+              {success}
+            </h6>
           </div>
         )}
         {feedback.map((item) => (
